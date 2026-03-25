@@ -7,7 +7,8 @@ using namespace std;
 int currentplayer;
 char currentmarker;
 
-char board[3][3]={{'1','2','3'},{'4','5','6'},{'7','8','9'}};
+char board1[3][3]={{'1','2','3'},{'4','5','6'},{'7','8','9'}};
+char board[3][3]={{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
 string name[3];
 
 bool checkplace(int x)
@@ -23,14 +24,26 @@ bool checkplace(int x)
     {return false;}
 }
 
+void Displayboard1()
+{
+
+    cout<<"\n         ---------- User Manual For Position ----------\n\n";
+    cout<<"\n    "<<board1[0][0]<<" | "<<board1[0][1]<<" | "<<board1[0][2]<<"\n";
+    cout<<"   ---|---|---\n";
+    cout<<"    "<<board1[1][0]<<" | "<<board1[1][1]<<" | "<<board1[1][2]<<"\n";
+    cout<<"   ---|---|---\n";
+    cout<<"    "<<board1[2][0]<<" | "<<board1[2][1]<<" | "<<board1[2][2]<<"\n\n";
+    
+
+}
 void Displayboard()
 {
 
-    cout<<"\n "<<board[0][0]<<" | "<<board[0][1]<<" | "<<board[0][2]<<"\n";
-    cout<<"---|---|---\n";
-    cout<<" "<<board[1][0]<<" | "<<board[1][1]<<" | "<<board[1][2]<<"\n";
-    cout<<"---|---|---\n";
-    cout<<" "<<board[2][0]<<" | "<<board[2][1]<<" | "<<board[2][2]<<"\n\n";
+    cout<<"\n    "<<board[0][0]<<" | "<<board[0][1]<<" | "<<board[0][2]<<"\n";
+    cout<<"   ---|---|---\n";
+    cout<<"    "<<board[1][0]<<" | "<<board[1][1]<<" | "<<board[1][2]<<"\n";
+    cout<<"   ---|---|---\n";
+    cout<<"    "<<board[2][0]<<" | "<<board[2][1]<<" | "<<board[2][2]<<"\n\n";
     
 
 }
@@ -38,19 +51,31 @@ int win()
 {
     for(int i=0;i<3;i++)
     {
-    if(board[i][0]==board[i][1] && board[i][1]==board[i][2])
-    return currentplayer;
+    if(board[i][0]==board[i][1] && board[i][1]==board[i][2] && board[i][1]=='X')
+    {return currentplayer;}
+    if(board[i][0]==board[i][1] && board[i][1]==board[i][2] && board[i][1]=='O')
+    {return currentplayer;}
     }
     for(int i=0;i<3;i++)
     {
-    if(board[0][i]==board[1][i] && board[i][1]==board[2][i])
-    return currentplayer;
+    if(board[0][i]==board[1][i] && board[i][1]==board[2][i] && board[i][1]=='X')
+    {return currentplayer;}
+    if(board[0][i]==board[1][i] && board[i][1]==board[2][i] && board[i][1]=='O')
+    {return currentplayer;}
     }
-    if(board[0][0]==board[1][1] && board[1][1]==board[2][2])
+    if(board[0][0]==board[1][1] && board[1][1]==board[2][2] && board[1][1]=='X')
     {
         return currentplayer;
     }
-    if(board[0][2]==board[1][1] && board[1][1]==board[2][0])
+    if(board[0][2]==board[1][1] && board[1][1]==board[2][0] && board[1][1]=='O')
+    { 
+        return currentplayer;
+    }
+    if(board[0][0]==board[1][1] && board[1][1]==board[2][2] && board[1][1]=='O')
+    {
+        return currentplayer;
+    }
+    if(board[0][2]==board[1][1] && board[1][1]==board[2][0] && board[1][1]=='X')
     { 
         return currentplayer;
     }
@@ -83,7 +108,7 @@ void game()
 
     currentplayer=1;
     currentmarker=marker;
-    Displayboard();
+    Displayboard1();
     int player_win;
     for(int i=0;i<9;i++)
     {
@@ -126,7 +151,7 @@ void game()
 }
 int main(void)
 {
-    cout<<"\n\n\n------ Welcome to this game .-------\n\n\n";
+    cout<<"\n\n\n       ------ Welcome to this game -------\n\n\n";
     game();
     return 0;
 }
