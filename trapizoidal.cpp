@@ -31,7 +31,7 @@ int main() {
     cout<<"Enter No. of Intervals: ";
     cin>>intervals;
     float result = trapezoidal(lower_limit, upper_limit, intervals);
-    cout << "The integral value is: " << result << std::endl;
+    cout << "The integral value is: " << result <<endl;
 
     return 0;
 }
