@@ -7,12 +7,12 @@ float f(float x) {
     return  ( x * x);
 }
 
-// Trapezoidal Rule implementation
-float simp13(float a, float b, int n) {
-    float h = (b - a) / n; // Width of each sub-interval
-    float sum = f(a) + f(b); // Sum of first and last term
 
-    // Sum of middle terms multiplied by 2
+float simp13(float a, float b, int n) {
+    float h = (b - a) / n; 
+    float sum = f(a) + f(b); 
+
+    
     for (int i = 1; i < n; i++) {
         if (i%2==0)
         {
@@ -38,7 +38,7 @@ int main() {
     cout<<"Enter No. of Intervals: ";
     cin>>intervals;
     float result = simp13(lower_limit, upper_limit, intervals);
-    cout << "The integral value is: " << result << std::endl;
+    cout << "The integral value is: " << result <<endl;
 
     return 0;
 }
