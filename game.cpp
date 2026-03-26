@@ -100,9 +100,9 @@ void swap_player_marker()
 void game()
 {
     cout<<"First Player Name : ";
-    cin>>name[1];
+    getline( cin,name[1]);
     cout<<"Second Player Name : ";
-    cin>>name[2];
+    getline(cin,name[2]);
     char marker;
     marker='X';
 
