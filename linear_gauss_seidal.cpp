@@ -5,7 +5,7 @@
 using namespace std;
 
 struct mat{
-    double x[3][3];
+    double x[10][10];
     int m,n;
 };
 double f(float a,float b,float c,float d,float e,float g)
